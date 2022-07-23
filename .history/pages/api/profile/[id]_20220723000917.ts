@@ -1,0 +1,21 @@
+import { singleUserQuery } from './../../../utils/queries';
+
+import type { NextApiRequest, NextApiResponse } from 'next'
+
+import { singleUserQuery } from '../../../utils/queries';
+import { client } from '../../../utils/client';
+
+
+
+export default async function handler(req: NextApiRequest,res: NextApiResponse
+) {
+  if(req.method == 'GET') {
+    const { id } = req.query;
+     
+    const query = singleUserQuery(id)
+
+    const user = await client.fetch(query)
+
+    res.status(200).json(user)
+  }
+}
