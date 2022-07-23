@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   typescript: {
-    ignoreBuildErrors: true
-  },
+    ignoreBuildErrors
+  }
   reactStrictMode: true,
   images: {
     domains: [
